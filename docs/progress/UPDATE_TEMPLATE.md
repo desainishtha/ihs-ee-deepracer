@@ -15,6 +15,15 @@
 - 
 
 ## Diagram
+```mermaid
+flowchart LR
+    A[ChatGPT Planning] --> B[Prompt Creation]
+    B --> C[GitHub Copilot Coding]
+    C --> D[VS Code Changes]
+    D --> E[GitHub Commit]
+```
+
+Or as a simple text flow:
 ChatGPT → Prompt → Copilot → Code → GitHub
 
 ## Next Steps
