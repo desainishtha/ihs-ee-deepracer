@@ -68,6 +68,57 @@ def save_markdown(results, md_file):
         f.write("\n".join(lines))
     print(f"Markdown output saved to: {md_file}")
 
+def save_html(results, html_file):
+    """Save results as HTML table."""
+    html = f"""<!DOCTYPE html>
+<html>
+<head>
+    <title>Phase 1 Validation Results</title>
+    <style>
+        body {{ font-family: Arial, sans-serif; margin: 20px; }}
+        h1 {{ color: #333; }}
+        table {{ border-collapse: collapse; width: 100%; }}
+        th, td {{ border: 1px solid #ddd; padding: 8px; text-align: left; }}
+        th {{ background-color: #f2f2f2; }}
+        tr:nth-child(even) {{ background-color: #f9f9f9; }}
+    </style>
+</head>
+<body>
+    <h1>Phase 1 Validation Results</h1>
+    <table>
+        <tr>
+            <th>Scenario</th>
+            <th>Distance</th>
+            <th>Steering</th>
+            <th>Reward</th>
+            <th>Class</th>
+        </tr>"""
+
+    for case in TEST_CASES:
+        name = case["name"].replace("_", " ").title()
+        params = case["params"]
+        distance = params["distance_from_center"]
+        steering = params["steering_angle"]
+        reward = results[case["name"]]
+        reward_class = classify_reward(reward)
+        html += f"""
+        <tr>
+            <td>{name}</td>
+            <td>{distance:.2f}</td>
+            <td>{steering:.1f}</td>
+            <td>{reward:.3f}</td>
+            <td>{reward_class}</td>
+        </tr>"""
+
+    html += """
+    </table>
+</body>
+</html>"""
+
+    with open(html_file, "w") as f:
+        f.write(html)
+    print(f"HTML output saved to: {html_file}")
+
 def main():
     print("Running Phase 1 validation...")
     print("Testing reward function logic and consistency.")
@@ -77,6 +128,7 @@ def main():
         print("✓ All validation checks passed!")
         print_summary_table(results, "tests/phase1_test_output.txt")
         save_markdown(results, "tests/phase1_test_output.md")
+        save_html(results, "tests/phase1_test_output.html")
         print("\n" + "="*80)
         print("Phase 1 validation PASSED")
         print("Reward function is working correctly.")

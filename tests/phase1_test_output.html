@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Phase 1 Validation Results</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #333; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+    </style>
+</head>
+<body>
+    <h1>Phase 1 Validation Results</h1>
+    <table>
+        <tr>
+            <th>Scenario</th>
+            <th>Distance</th>
+            <th>Steering</th>
+            <th>Reward</th>
+            <th>Class</th>
+        </tr>
+        <tr>
+            <td>Ideal Centered Driving</td>
+            <td>0.00</td>
+            <td>0.0</td>
+            <td>3.500</td>
+            <td>high</td>
+        </tr>
+        <tr>
+            <td>Slightly Off Center Driving</td>
+            <td>0.12</td>
+            <td>5.0</td>
+            <td>2.500</td>
+            <td>medium</td>
+        </tr>
+        <tr>
+            <td>Moderately Off Center Driving</td>
+            <td>0.30</td>
+            <td>5.0</td>
+            <td>1.500</td>
+            <td>low</td>
+        </tr>
+        <tr>
+            <td>Near Edge Of Track</td>
+            <td>0.55</td>
+            <td>5.0</td>
+            <td>1.000</td>
+            <td>low</td>
+        </tr>
+        <tr>
+            <td>All Wheels Off Track</td>
+            <td>0.60</td>
+            <td>25.0</td>
+            <td>0.001</td>
+            <td>near-zero</td>
+        </tr>
+        <tr>
+            <td>Centered But Harsh Steering</td>
+            <td>0.05</td>
+            <td>20.0</td>
+            <td>2.900</td>
+            <td>medium</td>
+        </tr>
+        <tr>
+            <td>Off Center With Harsh Steering</td>
+            <td>0.30</td>
+            <td>20.0</td>
+            <td>1.300</td>
+            <td>low</td>
+        </tr>
+    </table>
+</body>
+</html>
