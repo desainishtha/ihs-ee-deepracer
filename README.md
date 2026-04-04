@@ -1,4 +1,4 @@
-# my-deepracer
+# IHS - DeepRacer project for Engineering Expo 2026
 
 AWS DeepRacer project scaffold.
 
