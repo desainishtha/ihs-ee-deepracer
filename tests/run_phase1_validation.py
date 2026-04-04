@@ -7,6 +7,7 @@ import os
 sys.path.append(os.path.dirname(__file__))
 
 from test_reward_function import test_reward_function
+from test_cases import TEST_CASES
 
 def print_summary_table(results):
     """Print a readable table of test results."""
@@ -45,6 +46,4 @@ def main():
         return 1
 
 if __name__ == "__main__":
-    # Import test cases for summary
-    from test_cases import TEST_CASES
     sys.exit(main())
