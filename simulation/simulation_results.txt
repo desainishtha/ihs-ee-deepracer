@@ -1,0 +1,22 @@
+=== Phase 1 Training Simulation ===
+Showing how average reward improves over episodes.
+
+Episode    Avg Reward  
+-------------------------
+Episode 1   → avg reward: 1.229
+Episode 2   → avg reward: 1.300
+Episode 3   → avg reward: 1.300
+Episode 4   → avg reward: 1.414
+Episode 5   → avg reward: 1.414
+Episode 6   → avg reward: 1.557
+Episode 7   → avg reward: 1.700
+Episode 8   → avg reward: 1.700
+Episode 9   → avg reward: 1.814
+Episode 10  → avg reward: 1.814
+
+Summary:
+Episode 1 → avg reward: 1.229
+Episode 5 → avg reward: 1.414
+Episode 10 → avg reward: 1.814
+
+Training simulation complete.
