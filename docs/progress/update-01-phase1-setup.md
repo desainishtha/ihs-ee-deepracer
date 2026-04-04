@@ -4,7 +4,7 @@
 - Defined Phase 1 scope
 - Reviewed AWS DeepRacer basics
 - Set up repo structure
-- Started the reward function
+- Started building the reward function
 
 ## How I Did It
 - Used ChatGPT to plan Phase 1
