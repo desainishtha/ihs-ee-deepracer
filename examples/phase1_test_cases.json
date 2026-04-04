@@ -1,0 +1,117 @@
+{
+  "description": "Phase 1 Sample Test Cases for Lane Following Reward Function",
+  "note": "These scenarios represent different driving situations. Use these to understand how the reward function scores driving behavior.",
+  "test_cases": [
+    {
+      "name": "Perfect Center",
+      "description": "Car is dead center on track with no steering",
+      "expected_reward": 3.0,
+      "params": {
+        "track_width": 1.0,
+        "distance_from_center": 0.0,
+        "all_wheels_on_track": true,
+        "speed": 2.0,
+        "steering_angle": 0.0
+      }
+    },
+    {
+      "name": "Slightly Off-Center",
+      "description": "Car is close to center (within 10% threshold) with gentle steering",
+      "expected_reward": 3.0,
+      "params": {
+        "track_width": 1.0,
+        "distance_from_center": 0.08,
+        "all_wheels_on_track": true,
+        "speed": 2.0,
+        "steering_angle": 5.0
+      }
+    },
+    {
+      "name": "Approaching Center",
+      "description": "Car is within 25% of track width from center",
+      "expected_reward": 2.0,
+      "params": {
+        "track_width": 1.0,
+        "distance_from_center": 0.2,
+        "all_wheels_on_track": true,
+        "speed": 2.0,
+        "steering_angle": 5.0
+      }
+    },
+    {
+      "name": "Entering Edge Zone",
+      "description": "Car is between 25-50% of track width from center",
+      "expected_reward": 1.0,
+      "params": {
+        "track_width": 1.0,
+        "distance_from_center": 0.4,
+        "all_wheels_on_track": true,
+        "speed": 2.0,
+        "steering_angle": 5.0
+      }
+    },
+    {
+      "name": "Very Close to Edge",
+      "description": "Car is over 50% of track width from center (bad positioning)",
+      "expected_reward": 0.5,
+      "params": {
+        "track_width": 1.0,
+        "distance_from_center": 0.55,
+        "all_wheels_on_track": true,
+        "speed": 2.0,
+        "steering_angle": 5.0
+      }
+    },
+    {
+      "name": "Off-Track Crash",
+      "description": "Car has left the track (all wheels off)",
+      "expected_reward": 0.001,
+      "params": {
+        "track_width": 1.0,
+        "distance_from_center": 0.6,
+        "all_wheels_on_track": false,
+        "speed": 2.0,
+        "steering_angle": 25.0
+      }
+    },
+    {
+      "name": "Hard Steering Penalty",
+      "description": "Car is centered but steering is too aggressive (>15 degrees)",
+      "expected_reward": 2.4,
+      "note": "Expected = 3.0 * 0.8 (20% penalty for harsh steering)",
+      "params": {
+        "track_width": 1.0,
+        "distance_from_center": 0.05,
+        "all_wheels_on_track": true,
+        "speed": 2.0,
+        "steering_angle": 20.0
+      }
+    },
+    {
+      "name": "Gentle Steering at Edge",
+      "description": "Car is at edge but steering smoothly",
+      "expected_reward": 1.0,
+      "params": {
+        "track_width": 1.0,
+        "distance_from_center": 0.45,
+        "all_wheels_on_track": true,
+        "speed": 2.0,
+        "steering_angle": 10.0
+      }
+    }
+  ],
+  "reward_scale": {
+    "3.0": "Excellent - perfectly centered with smooth steering",
+    "2.0": "Good - close to center with smooth steering",
+    "1.0": "Okay - approaching edge with smooth steering",
+    "0.5": "Bad - very close to edge but still on track",
+    "0.001": "Critical - off-track crash"
+  },
+  "learning_points": [
+    "Distance from center is the primary factor",
+    "Smooth steering (≤15°) is rewarded, harsh steering (>15°) is penalized",
+    "Off-track driving receives near-zero reward",
+    "The car will learn to drive in the center and steer smoothly",
+    "These thresholds (0.1, 0.25, 0.5) are tunable for different strategies"
+  ]
+}
