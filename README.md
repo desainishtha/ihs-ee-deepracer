@@ -111,6 +111,20 @@ python3 train.py
 
 This is **much faster** than training on AWS. Use this to quickly test ideas.
 
+### Run Phase 1 Validation
+
+To check if your reward function logic is correct:
+
+```bash
+python3 tests/run_phase1_validation.py
+```
+
+This runs automated tests to ensure:
+- Rewards decrease as car moves away from center
+- Off-track driving gets near-zero rewards
+- Harsh steering reduces rewards
+- All values are logical and consistent
+
 ---
 
 ## File Descriptions
@@ -121,9 +135,13 @@ This is **much faster** than training on AWS. Use this to quickly test ideas.
 | `train.py` | Local test runner; validates your reward function |
 | `requirements.txt` | Python dependencies (numpy) |
 | `docs/PHASE1_SCOPE.md` | Detailed Phase 1 scope and deliverables |
-| `examples/phase1_test_cases.json` | Sample reward function scenarios |
 | `docs/PHASE1_DEMO.md` | How to explain and demo your project |
+| `docs/PHASE1_TEST_RESULTS.md` | Phase 1 testing results and validation guide |
 | `docs/PROJECT_ROADMAP.md` | Vision for Phase 2 and Phase 3 |
+| `examples/phase1_test_cases.json` | Sample reward function scenarios |
+| `tests/test_cases.py` | Test case definitions for validation |
+| `tests/test_reward_function.py` | Unit tests for reward function logic |
+| `tests/run_phase1_validation.py` | Automated validation runner |
 
 ---
 
