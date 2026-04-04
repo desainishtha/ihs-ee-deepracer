@@ -5,7 +5,7 @@
     {
       "name": "Perfect Center",
       "description": "Car is dead center on track with no steering",
-      "expected_reward": 3.0,
+      "expected_reward": 3.5,
       "params": {
         "track_width": 1.0,
         "distance_from_center": 0.0,
@@ -17,7 +17,7 @@
     {
       "name": "Slightly Off-Center",
       "description": "Car is close to center (within 10% threshold) with gentle steering",
-      "expected_reward": 3.0,
+      "expected_reward": 3.5,
       "params": {
         "track_width": 1.0,
         "distance_from_center": 0.08,
@@ -29,7 +29,7 @@
     {
       "name": "Approaching Center",
       "description": "Car is within 25% of track width from center",
-      "expected_reward": 2.0,
+      "expected_reward": 2.5,
       "params": {
         "track_width": 1.0,
         "distance_from_center": 0.2,
@@ -41,7 +41,7 @@
     {
       "name": "Entering Edge Zone",
       "description": "Car is between 25-50% of track width from center",
-      "expected_reward": 1.0,
+      "expected_reward": 1.5,
       "params": {
         "track_width": 1.0,
         "distance_from_center": 0.4,
@@ -53,7 +53,7 @@
     {
       "name": "Very Close to Edge",
       "description": "Car is over 50% of track width from center (bad positioning)",
-      "expected_reward": 0.5,
+      "expected_reward": 1.0,
       "params": {
         "track_width": 1.0,
         "distance_from_center": 0.55,
@@ -77,8 +77,8 @@
     {
       "name": "Hard Steering Penalty",
       "description": "Car is centered but steering is too aggressive (>15 degrees)",
-      "expected_reward": 2.4,
-      "note": "Expected = 3.0 * 0.8 (20% penalty for harsh steering)",
+      "expected_reward": 2.9,
+      "note": "Expected = 3.0 * 0.8 (20% penalty) + 0.5 speed bonus",
       "params": {
         "track_width": 1.0,
         "distance_from_center": 0.05,
@@ -101,10 +101,11 @@
     }
   ],
   "reward_scale": {
-    "3.0": "Excellent - perfectly centered with smooth steering",
-    "2.0": "Good - close to center with smooth steering",
-    "1.0": "Okay - approaching edge with smooth steering",
-    "0.5": "Bad - very close to edge but still on track",
+    "3.5": "Excellent - perfectly centered with smooth steering and moderate speed",
+    "2.5": "Good - close to center with smooth steering and moderate speed",
+    "1.5": "Okay - approaching edge with smooth speed",
+    "1.0": "Low - very close to edge but still on track",
+    "0.5": "Bad - very close to edge and on track",
     "0.001": "Critical - off-track crash"
   },
   "learning_points": [

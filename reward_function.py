@@ -12,9 +12,9 @@ def reward_function(params):
     
     Args:
         params: Dictionary with car telemetry from AWS DeepRacer service.
-                Expected keys: track_width, distance_from_center, 
-                all_wheels_on_track, steering_angle
-    
+                Expected keys: track_width, distance_from_center,
+                all_wheels_on_track, speed, steering_angle
+
     Returns:
         float: Reward value (higher is better). Range: [0, ~5]
     """
@@ -23,6 +23,7 @@ def reward_function(params):
     track_width = params.get("track_width", 1.0)
     distance_from_center = params.get("distance_from_center", 0.0)
     all_wheels_on_track = params.get("all_wheels_on_track", True)
+    speed = params.get("speed", 0.0)
     steering_angle = abs(params.get("steering_angle", 0.0))
 
     # ====== RULE 1: Off-track is bad =====
@@ -51,5 +52,10 @@ def reward_function(params):
     # Penalize harsh turns (steering angle > 15 degrees)
     if steering_angle > 15:
         reward *= 0.8  # Reduce reward by 20%
+
+    # ====== RULE 4: Encourage reasonable speed =====
+    # Add a small bonus for moving at a moderate pace while staying on track.
+    if speed >= 2.0:
+        reward += 0.5
 
     return float(reward)

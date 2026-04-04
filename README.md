@@ -56,7 +56,7 @@ ihs-ee-deepracer/
 │   └── PROJECT_ROADMAP.md       ← What comes after Phase 1
 │
 └── examples/
-    └── (sample test cases coming soon)
+    └── phase1_test_cases.json    ← Sample reward function scenarios
 ```
 
 ---
@@ -77,7 +77,7 @@ python3 -m pip install -r requirements.txt
 python3 train.py
 ```
 
-This runs your reward function with sample data and shows you what score it gets. **This is how you test before uploading to AWS.**
+This runs your reward function with sample data and shows you what score it gets. `train.py` will use `examples/phase1_test_cases.json` when available. **This is how you test before uploading to AWS.**
 
 ### Step 3: Understand the Code (5 minutes)
 
@@ -119,8 +119,9 @@ This is **much faster** than training on AWS. Use this to quickly test ideas.
 |------|---------|
 | `reward_function.py` | Defines how the car learns—the "brain" of the project |
 | `train.py` | Local test runner; validates your reward function |
-| `requirements.txt` | Python dependencies (numpy, pytest) |
+| `requirements.txt` | Python dependencies (numpy) |
 | `docs/PHASE1_SCOPE.md` | Detailed Phase 1 scope and deliverables |
+| `examples/phase1_test_cases.json` | Sample reward function scenarios |
 | `docs/PHASE1_DEMO.md` | How to explain and demo your project |
 | `docs/PROJECT_ROADMAP.md` | Vision for Phase 2 and Phase 3 |
 

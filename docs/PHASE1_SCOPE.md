@@ -90,8 +90,8 @@ Phase 1 is a minimal, teachable milestone suitable for student understanding and
 - [x] train.py (already works, will enhance in Phase 1b)
 
 ### Examples & Resources
-- [ ] examples/test_cases.json (sample data)
-- [ ] examples/aws_walkthrough.md (AWS console steps)
+- [x] examples/phase1_test_cases.json (sample data)
+- [ ] AWS console walkthrough documented in docs/PHASE1_DEMO.md
 
 ---
 
