@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+.venv/
+venv/
+ENV/
+
+# Editor directories
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# AWS / DeepRacer artifacts
+models/
+model/
+*.tar.gz
+*.zip
+
+# Data
+data/
+*.csv
+
+# macOS
+.DS_Store
