@@ -1,0 +1,14 @@
+
+================================================================================
+PHASE 1 VALIDATION RESULTS
+================================================================================
+Scenario                  Distance   Steering   Reward   Class
+--------------------------------------------------------------------------------
+Ideal Centered Driving    0.00       0.0        3.500    high
+Slightly Off Center Driving 0.12       5.0        2.500    medium
+Moderately Off Center Driving 0.30       5.0        1.500    low
+Near Edge Of Track        0.55       5.0        1.000    low
+All Wheels Off Track      0.60       25.0       0.001    near-zero
+Centered But Harsh Steering 0.05       20.0       2.900    medium
+Off Center With Harsh Steering 0.30       20.0       1.300    low
+================================================================================
