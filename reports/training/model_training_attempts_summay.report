@@ -1,0 +1,50 @@
+DeepRacer Model Training Summary (Teacher Share Version)
+Date: April 5, 2026
+
+Objective
+- Build a stable local DeepRacer training workflow on Mac and reach safe, consistent lane-following quality before any physical-car testing.
+
+What was achieved
+- Local runtime setup and custom-file upload flow are working.
+- Headless simulation path was stabilized (display/render crashes were resolved).
+- Short and medium training runs were completed and measured multiple times.
+- Evidence reports and metrics were captured for review.
+
+Attempt outcomes (high level)
+1) 30-minute baseline run
+- Runtime: completed
+- Quality: low consistency
+- Key numbers: eval avg completion ~11.55, best eval completion 31, off-track 100%
+- Result: NO-GO
+
+2) 60-minute run
+- Runtime: OOM termination
+- Key numbers: eval avg completion ~12.37, best eval completion 23, off-track 100%
+- Result: NO-GO
+
+3) Recovery-tuned run
+- Runtime: progressed, then OOM
+- Key numbers: train_last20 11.35, eval_last20 22.13, best_eval_completion 23, off-track 100%
+- Result: NO-GO (better eval average, but still unreliable and below best-completion target)
+
+4) Headless-fix run
+- Runtime: stable infrastructure, no render crash signatures
+- Key numbers: train_last20 8.15, eval_last20 3.80, best_eval_completion 5, off-track 100%
+- Result: FAIL_METRICS
+
+5) Conservative action/reward retry
+- Runtime: started stable, then OOM later in run
+- Key numbers: training episodes 40, evaluation episodes 8, train_last20 9.45, eval_last20 7.00, best_eval_completion 7, off-track 100%
+- Result: NO-GO
+
+Current conclusion
+- Infrastructure stability is improved compared to earlier runs, but model quality is still not sufficient.
+- Across attempts, off-track remained 100% and evaluation completion stayed too low for safe physical testing.
+- Final status for this cycle: NO-GO for physical package.
+
+Attached supporting files
+- reports/training/30min_report.md
+- reports/training/60min_report.md
+- reports/training/attempt_log_last5.md
+- reports/training/metrics/TrainingMetrics_30min.json
+- reports/training/metrics/TrainingMetrics_60min_attempt.json
